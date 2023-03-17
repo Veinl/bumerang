@@ -26,7 +26,7 @@ function runInteractiveConsole() {
       if (key.name in keyboard) {
         keyboard[key.name]();
       }
-      // Прерывание программы.
+      // Прерывание программы .
       if (key.ctrl && key.name === 'c') {
         process.exit();
       }
