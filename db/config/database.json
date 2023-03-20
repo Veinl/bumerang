@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "hatefuldeus",
+    "password": 666,
+    "database": "boomerang",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
