@@ -1,25 +1,24 @@
-// Враг.
-
 class Enemy {
-  constructor() {
-    this.generateSkin();
-    this.position = 2;
-  }
+    constructor({maxVertical, maxHorizontal}) {
+        this.generateSkin();
+        this.position = [Math.floor(Math.random() * maxVertical), maxHorizontal - 1];
+        this.prevPosition = [...this.position];
+    }
 
-  generateSkin() {
-    const skins = ['👾', '💀', '👹', '👻', '👽', '👿', '💩', '🤡', '🤺', '🧛', '🧟', '🎃'];
-    this.skin = skins[Math.floor(Math.random() * skins.length)];
-  }
+    generateSkin() {
+        const skins = ['👾', '💀', '👹', '👻', '👽', '👿', '💩', '🤡', '🤺', '🧛', '🧟', '🎃'];
+        this.skin = skins[Math.floor(Math.random() * skins.length)];
+    }
 
-  moveLeft() {
-    // Идём влево.
-    this.position -= 1;
-  }
+    moveLeft() {
+        const [x, y] = this.position;
+        this.prevPosition = [...this.position];
+        this.position = [x, y - 1 >= 0 ? y - 1 : 0];
+    }
 
-  die() {
-    this.position = '?';
-    console.log('Enemy is dead!');
-  }
+    die() {
+        this.position = null;
+    }
 }
 
 module.exports = Enemy;
