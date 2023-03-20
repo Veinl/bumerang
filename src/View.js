@@ -1,15 +1,14 @@
-// Сделаем отдельный класс для отображения игры в консоли.
-
 class View {
-  render() {
-    const yourTeamName = 'Elbrus';
-
-    // Тут всё рисуем.
-    console.clear();
-    console.log(this.game.track.join(''));
-    console.log('\n\n');
-    console.log(`Created by "${yourTeamName}" with love`);
-  }
+    render(track) {
+        console.clear();
+        const rows = track.map((t) => t.join(' '));
+        const field = rows.join('\n');
+        console.log(field);
+        console.log('\n\n');
+        console.log(`Score: ${global.score} souls`);
+        console.log(`${global.userName} of ${global.teamName} on the battlefield`);
+        console.log(`Time: ${global.timeCheck / 10} seconds`);
+    }
 }
 
 module.exports = View;
